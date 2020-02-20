@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {TEST} from 'react-native-dotenv';
+// import {TEST} from 'react-native-dotenv';
 
 export default class HelloHack extends Component {
   render() {
@@ -11,8 +11,7 @@ export default class HelloHack extends Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text style={{fontSize: 20}}>Hello GTH 2020, let's go!!!</Text>
-        <Text>{TEST}</Text>
+        <Text style={{fontSize: 20}}>Hello GTH 2020, let's go!</Text>
       </View>
     );
   }
