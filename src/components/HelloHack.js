@@ -11,7 +11,8 @@ export default class HelloHack extends Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text style={{fontSize: 20}}>Hello GTH 2020, let's go!</Text>
+        <Text style={{fontSize: 20}}>Hello GTH 2020, let's go!!!</Text>
+        <Text>Hello Hack</Text>
       </View>
     );
   }
