@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {TEST} from 'react-native-dotenv';
+// import {TEST} from 'react-native-dotenv';
 
 export default class HelloHack extends Component {
   render() {
