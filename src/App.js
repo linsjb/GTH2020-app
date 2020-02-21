@@ -10,11 +10,12 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 import HelloHack from './components/HelloHack';
+import Section from './components/Section';
 
 const App = () => {
   return (
     <>
-      <HelloHack />
+      <Section />
     </>
   );
 };
