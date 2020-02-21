@@ -11,7 +11,7 @@ import {View, Text} from 'react-native';
 
 import HelloHack from './components/HelloHack';
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <>
       <HelloHack />
