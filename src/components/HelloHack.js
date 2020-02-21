@@ -12,7 +12,7 @@ export default class HelloHack extends Component {
           alignItems: 'center',
         }}>
         <Text style={{fontSize: 20}}>Hello GTH 2020, let's go!!!</Text>
-        <Text>{TEST}</Text>
+        <Text>Hello Hack</Text>
       </View>
     );
   }
