@@ -6,6 +6,8 @@ import {View, Text, Button, StyleSheet} from 'react-native';
 import Tabs from 'react-native-tabs';
 import Header from './components/Header';
 import HelloHack from './components/HelloHack';
+import BadgesComponent from './components/Badges';
+import CoursesComponent from './components/Courses'
 
 const Courses = ({navigation}) => {
   const setState = name => {
@@ -14,21 +16,15 @@ const Courses = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Mindist" />
-      <HelloHack></HelloHack>
-
-      <Tabs
-        selected={'first'}
-        style={{backgroundColor: 'white'}}
-        selectedStyle={{color: 'red'}}
-        onSelect={el => setState(el.props.name)}>
-        <Text name="Courses" style={{color: 'red'}}>
-          Courses
-        </Text>
-        <Text name="Badges">Badges</Text>
-        <Text name="News">News</Text>
-      </Tabs>
-    </View>
+      <Header title='Mindist'/>       
+      <CoursesComponent></CoursesComponent>
+      <Tabs selected={"first"} style={{backgroundColor:'white'}}
+              selectedStyle={{color:'red'}} onSelect={ el => setState(el.props.name)}>
+            <Text name="Courses" style={{color:'red'}} >Courses</Text>
+            <Text name="Badges">Badges</Text>
+            <Text name="News">News</Text>            
+      </Tabs>           
+    </View>    
   );
 };
 
@@ -39,9 +35,9 @@ const Badges = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Mindist" />
-      {/* My Badges goes here */}
-      <Text>Badges</Text>
+      <Header title='Mindist'/>
+      <BadgesComponent></BadgesComponent>
+      {/* <Text>Badges</Text> */}
 
       <Tabs
         selected={'first'}
