@@ -12,45 +12,46 @@ import Section from './Section';
 
 const informationSectOne =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel eros non velit laoreet sagittis vitae et magna. Aliquam fringilla congue condimentum. Suspendisse et nisi nec risus efficitur tristique ac in nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque iaculis porttitor augue a finibus. Pellentesque pretium, lacus nec accumsan pharetra, erat urna iaculis est, eget egestas libero augue a tellus. Curabitur auctor est eu quam convallis, et condimentum augue commodo. Aliquam metus neque, accumsan id sem at, lacinia aliquam augue. Fusce pellentesque metus sit amet accumsan elementum. Pellentesque porta nisl id est imperdiet, ac scelerisque lorem sodales.';
-const informationSectTwo = 'Information for the second section';
+const informationSectTwo =
+  'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec finibus a libero vitae mollis. Cras et sodales lacus, vitae rutrum nisl. Sed et augue sed quam iaculis consequat. Morbi ultrices posuere justo, eget blandit nulla laoreet et. Suspendisse magna lacus, aliquet id placerat nec, aliquet ut massa. Morbi at feugiat nisl. Nunc mollis ex ac felis gravida sollicitudin. Maecenas vel justo ac ante malesuada dapibus vel vel sapien. Fusce posuere urna eu est hendrerit mollis. Mauris orci neque, efficitur vitae faucibus quis, dignissim at ligula. Etiam facilisis ante vitae turpis vestibulum euismod.';
 
 const topHeadOne = 'Område ett';
 const topHeadTwo = 'Område två';
 
 const questionsSectOne = [
   {
-    question: 'What is the capital of Sweden?',
+    question: 'Vad är svaret på fråga #1?',
     answers: [
-      {id: 0, payload: 'alt One', clicked: false, correctState: true},
-      {id: 1, payload: 'alt two', clicked: false, correctState: false},
-      {id: 2, payload: 'alt tree', clicked: false, correctState: false},
+      {id: 0, payload: 'Alternativ #1', clicked: false, correctState: true},
+      {id: 1, payload: 'Alternativ #2', clicked: false, correctState: false},
+      {id: 2, payload: 'Alternativ #2', clicked: false, correctState: false},
     ],
   },
   {
-    question: 'What is the capital of Sweden?',
+    question: 'Vad är svaret på fråga #2?',
     answers: [
-      {id: 0, payload: 'alt One one', clicked: false, correctState: true},
-      {id: 1, payload: 'alt two two', clicked: false, correctState: false},
+      {id: 0, payload: 'Alternativ #1', clicked: false, correctState: true},
+      {id: 1, payload: 'Alternativ #1', clicked: false, correctState: false},
     ],
   },
 ];
 const questionsSectTwo = [
   {
-    question: 'What is the capital of Swedeldkdlöfkdlöfkn?',
+    question: 'Vad är svaret på andra fråga #1?',
     answers: [
-      {id: 0, payload: 'alt One', clicked: false, correctState: false},
-      {id: 1, payload: 'alt two', clicked: false, correctState: false},
-      {id: 2, payload: 'alt tree', clicked: false, correctState: false},
-      {id: 3, payload: 'alt 4', clicked: false, correctState: false},
+      {id: 0, payload: 'Alternativ #1', clicked: false, correctState: false},
+      {id: 1, payload: 'Alternativ #2', clicked: false, correctState: false},
+      {id: 2, payload: 'Alternativ #3', clicked: false, correctState: false},
+      {id: 3, payload: 'Alternativ #4', clicked: false, correctState: false},
     ],
   },
   {
-    question: 'What is the capital of Sweden?????',
+    question: 'WVad är svaret på andra fråga #1?',
     answers: [
-      {id: 0, payload: 'alt One onlöklöke', clicked: false, correctState: true},
+      {id: 0, payload: 'Fråga #1', clicked: false, correctState: true},
       {
         id: 1,
-        payload: 'alt two tölkölkwo',
+        payload: 'Fråga #2',
         clicked: false,
         correctState: false,
       },
@@ -79,6 +80,7 @@ export default class Topic extends Component {
             info={informationSectOne}
             head={topHeadOne}
             changeSection={this.changeSection}
+            color="red"
           />
         ) : (
           <Section

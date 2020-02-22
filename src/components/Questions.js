@@ -18,7 +18,7 @@ export default class Questions extends Component {
       test: false,
       continueButtonText: 'Nästa fråga',
       counter: 0,
-      questionNr: this.props.questionNr,
+      currentQuestionNr: this.props.currentQuestionNr,
     };
   }
 
@@ -34,12 +34,14 @@ export default class Questions extends Component {
     this.setState({currentQuestion: 1});
 
     this.setState({continueButtonText: 'Nästa område'});
+    this.setState({currentQuestionNr: 1});
   };
 
   componentWillReceiveProps(props) {
     this.setState({visible: false});
     this.setState({answers: props.data.answers});
     this.setState({question: props.data.question});
+    // this.setState({currentQuestion: props.currentQuestion});
   }
 
   onButtonClick = () => {
@@ -65,11 +67,10 @@ export default class Questions extends Component {
                 text={this.state.continueButtonText}
                 onPress={this.onModalOk}
               />
-              <DialogButton text="CANCEL" onPress={() => {}} />
+              {/* <DialogButton text="CANCEL" onPress={() => {}} /> */}
             </DialogFooter>
           }>
           <DialogContent>
-            <Image source={(require = '../img/img.png')} />
             <Text style={styles.diaHeader}>Grattis!</Text>
             <Text>
               {this.state.currentQuestion === 0
@@ -80,7 +81,7 @@ export default class Questions extends Component {
         </Dialog>
 
         <Text style={styles.header}>
-          Fråga {this.state.currentQuestion + 1} av 2
+          Fråga {this.state.currentQuestionNr + 1} av 2
         </Text>
 
         <View style={styles.inner}>
@@ -88,16 +89,18 @@ export default class Questions extends Component {
             {this.state.question}
           </Text>
           {this.state.answers.map(question => (
-            <CircleCheckBox
-              style={styles.cb}
-              checked={question.clicked}
-              key={question.id}
-              onToggle={() => this.answerCorrection(question)}
-              labelPosition={LABEL_POSITION.RIGHT}
-              label={question.payload}
-              outerColor="#2E7D32"
-              innerColor="#2E7D32"
-            />
+            <View key={question.id} style={styles.quest}>
+              <CircleCheckBox
+                style={styles.cb}
+                checked={question.clicked}
+                key={question.id}
+                onToggle={() => this.answerCorrection(question)}
+                labelPosition={LABEL_POSITION.RIGHT}
+                label={question.payload}
+                outerColor="#2E7D32"
+                innerColor="#2E7D32"
+              />
+            </View>
           ))}
 
           <Text style={styles.button} onPress={() => this.onButtonClick()}>
@@ -113,6 +116,9 @@ const styles = StyleSheet.create({
   cb: {
     paddingVertical: 20,
     color: 'red',
+  },
+  quest: {
+    marginBottom: 20,
   },
   container: {
     flex: 1,
