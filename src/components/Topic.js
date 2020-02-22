@@ -15,12 +15,12 @@ const informationSectOne =
 const informationSectTwo =
   'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec finibus a libero vitae mollis. Cras et sodales lacus, vitae rutrum nisl. Sed et augue sed quam iaculis consequat. Morbi ultrices posuere justo, eget blandit nulla laoreet et. Suspendisse magna lacus, aliquet id placerat nec, aliquet ut massa. Morbi at feugiat nisl. Nunc mollis ex ac felis gravida sollicitudin. Maecenas vel justo ac ante malesuada dapibus vel vel sapien. Fusce posuere urna eu est hendrerit mollis. Mauris orci neque, efficitur vitae faucibus quis, dignissim at ligula. Etiam facilisis ante vitae turpis vestibulum euismod.';
 
-const topHeadOne = 'Område ett';
-const topHeadTwo = 'Område två';
+const topHeadOne = 'OCD';
+const topHeadTwo = 'PTSD';
 
 const questionsSectOne = [
   {
-    question: 'Vad är svaret på fråga #1?',
+    question: 'Vad är svaret på OCD fråga #1?',
     answers: [
       {id: 0, payload: 'Alternativ #1', clicked: false, correctState: true},
       {id: 1, payload: 'Alternativ #2', clicked: false, correctState: false},
@@ -28,7 +28,7 @@ const questionsSectOne = [
     ],
   },
   {
-    question: 'Vad är svaret på fråga #2?',
+    question: 'Vad är svaret på OCD fråga #2?',
     answers: [
       {id: 0, payload: 'Alternativ #1', clicked: false, correctState: true},
       {id: 1, payload: 'Alternativ #1', clicked: false, correctState: false},
@@ -37,7 +37,7 @@ const questionsSectOne = [
 ];
 const questionsSectTwo = [
   {
-    question: 'Vad är svaret på andra fråga #1?',
+    question: 'Vad är svaret på PTSD fråga #1?',
     answers: [
       {id: 0, payload: 'Alternativ #1', clicked: false, correctState: false},
       {id: 1, payload: 'Alternativ #2', clicked: false, correctState: false},
@@ -46,7 +46,7 @@ const questionsSectTwo = [
     ],
   },
   {
-    question: 'WVad är svaret på andra fråga #1?',
+    question: 'WVad är svaret på PTSD fråga #1?',
     answers: [
       {id: 0, payload: 'Fråga #1', clicked: false, correctState: true},
       {
