@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     fontSize: 25,
     textAlign: 'center',
+    color: 'white',
   },
   header: {
     fontSize: 25,
