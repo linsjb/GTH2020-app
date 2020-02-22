@@ -1,34 +1,60 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
+import React, {Component, useState} from 'react';
+import {Text, View, StyleSheet, Button, Modal} from 'react-native';
+import Dialog, {
+  DialogFooter,
+  DialogButton,
+  DialogContent,
+} from 'react-native-popup-dialog';
+
+import HelloHack from './HelloHack';
 
 export default class Question extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      answers: this.props.data.answers,
+      question: this.props.data.question,
+      visible: false,
+    };
   }
 
-  onClick = test => {
-    console.log('Hello' + test);
+  answerCorrection = question => {
+    this.state.answers[question.id].clicked = !this.state.answers[question.id]
+      .clicked;
+    console.log(this.state.answers);
   };
 
-  answerCorrection = id => {
-    console.log('Question ID ' + id);
-
-    console.log(this.props.data.answers);
+  onModalOk = () => {
+    this.props.change();
+    this.setState({visible: false});
   };
 
   render() {
     return (
       <View style={styles.box}>
+        <Dialog
+          visible={this.state.visible}
+          footer={
+            <DialogFooter>
+              <DialogButton text="Gå vidare" onPress={() => this.onModalOk()} />
+              <DialogButton text="CANCEL" onPress={() => {}} />
+            </DialogFooter>
+          }>
+          <DialogContent>
+            <Text style={styles.diaHeader}>Grattis!</Text>
+            <Text>Du har klarat den första delen av detta område!</Text>
+          </DialogContent>
+        </Dialog>
+
         <View style={styles.inner}>
           <Text style={{fontSize: 20, marginBottom: 20}}>
-            {this.props.data.question}
+            {this.state.question}
           </Text>
-          {this.props.data.answers.map(question => (
+          {this.state.answers.map(question => (
             <Text
               key={question.id}
               style={styles.question}
-              onPress={() => this.answerCorrection(question.id)}>
+              onPress={() => this.answerCorrection(question)}>
               {question.payload}
             </Text>
           ))}
@@ -37,7 +63,20 @@ export default class Question extends Component {
         <View>
           <Button
             title="Correct answers"
-            onPress={() => this.onClick('hello')}
+            onPress={() => {
+              let counter = 0;
+
+              this.state.answers.map(cur =>
+                cur.clicked === cur.correctState
+                  ? console.log('ok')
+                  : counter++,
+              );
+
+              console.log(counter);
+              if (counter === 0) {
+                this.setState({visible: true});
+              }
+            }}
           />
         </View>
       </View>
@@ -52,12 +91,19 @@ const styles = StyleSheet.create({
   },
   question: {
     fontSize: 20,
-    marginHorizontal: 10,
     marginBottom: 10,
+    padding: 10,
+    backgroundColor: '#E1BEE7',
   },
   box: {
     fontSize: 20,
     backgroundColor: 'red',
     marginBottom: 10,
+  },
+  diaHeader: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 });

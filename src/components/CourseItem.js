@@ -10,15 +10,14 @@ class CourseItem extends Component {
 
     render() {
       return (   
-        <TouchableOpacity style={styles.listitem} >  
-
+        <TouchableOpacity style={styles.listitem} > 
+         
             <CircleCheckBox
             checked={this.props.data.finished}
             onToggle={(checked) => console.log('My state is: ', checked)}
             labelPosition={LABEL_POSITION.RIGHT}
             label={this.props.data.text} />
-                   
-            
+                               
         </TouchableOpacity>                        
       );
     }
