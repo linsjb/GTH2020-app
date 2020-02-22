@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {View, Text, Button, StyleSheet} from 'react-native';
@@ -44,8 +44,8 @@ const Badges = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header title='Mindist'/>
-      <BadgesComponent></BadgesComponent>
+      <Header title="Mindist" />
+      <BadgesComponent />
       {/* <Text>Badges</Text> */}
 
       <Tabs

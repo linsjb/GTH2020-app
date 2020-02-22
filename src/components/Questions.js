@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Button, Modal} from 'react-native';
+import {Text, View, StyleSheet, Button, Modal, Image} from 'react-native';
 import Dialog, {
   DialogFooter,
   DialogButton,
   DialogContent,
 } from 'react-native-popup-dialog';
+import CircleCheckBox, {LABEL_POSITION} from 'react-native-circle-checkbox';
 
 export default class Questions extends Component {
   constructor(props) {
@@ -14,7 +15,10 @@ export default class Questions extends Component {
       answers: this.props.data.answers,
       visible: false,
       currentQuestion: 0,
-      dialogText: 'Grattis! Du har klarat av detta ämne!',
+      test: false,
+      continueButtonText: 'Nästa fråga',
+      counter: 0,
+      questionNr: this.props.questionNr,
     };
   }
 
@@ -22,11 +26,14 @@ export default class Questions extends Component {
     this.state.answers[question.id].clicked = !this.state.answers[question.id]
       .clicked;
     console.log(this.state.answers);
+    this.setState({test: true});
   };
 
   onModalOk = () => {
     this.props.change();
     this.setState({currentQuestion: 1});
+
+    this.setState({continueButtonText: 'Nästa område'});
   };
 
   componentWillReceiveProps(props) {
@@ -35,6 +42,18 @@ export default class Questions extends Component {
     this.setState({question: props.data.question});
   }
 
+  onButtonClick = () => {
+    this.state.answers.map(cur =>
+      cur.clicked === cur.correctState
+        ? console.log('ok')
+        : this.state.counter++,
+    );
+
+    if (this.state.counter === 0) {
+      this.setState({visible: true});
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -42,55 +61,46 @@ export default class Questions extends Component {
           visible={this.state.visible}
           footer={
             <DialogFooter>
-              <DialogButton text="Gå vidare" onPress={this.onModalOk} />
+              <DialogButton
+                text={this.state.continueButtonText}
+                onPress={this.onModalOk}
+              />
               <DialogButton text="CANCEL" onPress={() => {}} />
             </DialogFooter>
           }>
           <DialogContent>
+            <Image source={(require = '../img/img.png')} />
             <Text style={styles.diaHeader}>Grattis!</Text>
             <Text>
               {this.state.currentQuestion === 0
                 ? 'Du har klarat den första delen av detta område'
-                : this.state.dialogText}
+                : 'Grattis! Du har klarat av detta ämne!'}
             </Text>
           </DialogContent>
         </Dialog>
 
-        <Text style={styles.header}>Questions</Text>
+        <Text style={styles.header}>
+          Fråga {this.state.currentQuestion + 1} av 2
+        </Text>
 
         <View style={styles.inner}>
           <Text style={{fontSize: 20, marginBottom: 20}}>
             {this.state.question}
           </Text>
           {this.state.answers.map(question => (
-            <Text
+            <CircleCheckBox
+              style={styles.cb}
+              checked={question.clicked}
               key={question.id}
-              style={[
-                question.clicked === true
-                  ? styles.questionOn
-                  : styles.questionOff,
-              ]}
-              onPress={() => this.answerCorrection(question)}>
-              {question.payload}
-            </Text>
+              onToggle={() => this.answerCorrection(question)}
+              labelPosition={LABEL_POSITION.RIGHT}
+              label={question.payload}
+              outerColor="#2E7D32"
+              innerColor="#2E7D32"
+            />
           ))}
 
-          <Text
-            style={styles.button}
-            onPress={() => {
-              let counter = 0;
-
-              this.state.answers.map(cur =>
-                cur.clicked === cur.correctState
-                  ? console.log('ok')
-                  : counter++,
-              );
-
-              console.log(counter);
-              if (counter === 0) {
-                this.setState({visible: true});
-              }
-            }}>
+          <Text style={styles.button} onPress={() => this.onButtonClick()}>
             Rätta
           </Text>
         </View>
@@ -100,6 +110,10 @@ export default class Questions extends Component {
 }
 
 const styles = StyleSheet.create({
+  cb: {
+    paddingVertical: 20,
+    color: 'red',
+  },
   container: {
     flex: 1,
     padding: 10,
