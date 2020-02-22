@@ -14,6 +14,8 @@ export default class Section extends Component {
       info: this.props.info,
       dialogText: this.props.dialogText,
       head: this.props.head,
+      currentQuestionNr: 0,
+      color: null,
     };
   }
 
@@ -32,6 +34,7 @@ export default class Section extends Component {
     this.setState({data: props.questions});
     this.setState({info: props.info});
     this.setState({head: props.head});
+    this.setState({currentQuestionNr: 0});
   }
 
   render() {
@@ -47,7 +50,7 @@ export default class Section extends Component {
         <Questions
           data={this.state.data[this.state.currentIndex]}
           change={this.nextQuestion}
-          questionNr={this.state.currentIndex}
+          currentQuestionNr={this.state.currentQuestionNr}
         />
       </View>
     );
@@ -71,7 +74,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    marginTop: 40,
     paddingBottom: 100,
     backgroundColor: '#ECEFF1',
   },
