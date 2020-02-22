@@ -35,8 +35,6 @@ target 'gth2020App' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   use_native_modules!
-end
-<<<<<<< HEAD
-=======
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
->>>>>>> master
+end

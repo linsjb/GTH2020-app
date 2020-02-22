@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {View, Text, Button, StyleSheet} from 'react-native';
@@ -7,7 +7,7 @@ import Tabs from 'react-native-tabs';
 import Header from './components/Header';
 import HelloHack from './components/HelloHack';
 import BadgesComponent from './components/Badges';
-import CoursesComponent from './components/Courses'
+import CoursesComponent from './components/Courses';
 
 const Courses = ({navigation}) => {
   const setState = name => {
@@ -16,15 +16,20 @@ const Courses = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header title='Mindist'/>       
-      <CoursesComponent></CoursesComponent>
-      <Tabs selected={"first"} style={{backgroundColor:'white'}}
-              selectedStyle={{color:'red'}} onSelect={ el => setState(el.props.name)}>
-            <Text name="Courses" style={{color:'red'}} >Courses</Text>
-            <Text name="Badges">Badges</Text>
-            <Text name="News">News</Text>            
-      </Tabs>           
-    </View>    
+      <Header title="Mindist" />
+      <CoursesComponent />
+      <Tabs
+        selected={'first'}
+        style={{backgroundColor: 'white'}}
+        selectedStyle={{color: 'red'}}
+        onSelect={el => setState(el.props.name)}>
+        <Text name="Courses" style={{color: 'red'}}>
+          Courses
+        </Text>
+        <Text name="Badges">Badges</Text>
+        <Text name="News">News</Text>
+      </Tabs>
+    </View>
   );
 };
 
@@ -35,8 +40,8 @@ const Badges = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header title='Mindist'/>
-      <BadgesComponent></BadgesComponent>
+      <Header title="Mindist" />
+      <BadgesComponent />
       {/* <Text>Badges</Text> */}
 
       <Tabs

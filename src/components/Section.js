@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, ShadowPropTypesIOS} from 'react-native';
+import {Text, View, StyleSheet, ShadowPropTypesIOS, Image} from 'react-native';
 import uuid from 'react-native-uuid';
 
-import ProgressBar from './ProgessBar';
 import Questions from './Questions';
 
 export default class Section extends Component {
@@ -14,6 +13,7 @@ export default class Section extends Component {
       data: this.props.questions,
       info: this.props.info,
       dialogText: this.props.dialogText,
+      head: this.props.head,
     };
   }
 
@@ -31,11 +31,15 @@ export default class Section extends Component {
     this.setState({currentIndex: 0});
     this.setState({data: props.questions});
     this.setState({info: props.info});
+    this.setState({head: props.head});
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.headBox}>
+          <Text style={styles.contHead}>{this.state.head}</Text>
+        </View>
         <View style={styles.contentContainer}>
           <Text style={styles.descriptionText}>{this.state.info}</Text>
         </View>
@@ -43,6 +47,7 @@ export default class Section extends Component {
         <Questions
           data={this.state.data[this.state.currentIndex]}
           change={this.nextQuestion}
+          questionNr={this.state.currentIndex}
         />
       </View>
     );
@@ -50,10 +55,24 @@ export default class Section extends Component {
 }
 
 const styles = StyleSheet.create({
+  headBox: {
+    backgroundColor: '#9C27B0',
+    height: 200,
+    justifyContent: 'flex-end',
+    paddingBottom: 20,
+    paddingLeft: 25,
+  },
+  contHead: {
+    padding: 10,
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#E0E0E0',
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
     marginTop: 40,
+    paddingBottom: 100,
     backgroundColor: '#ECEFF1',
   },
   contentContainer: {
