@@ -34,20 +34,6 @@ target 'gth2020App' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'gth2020AppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   use_native_modules!
 end
 
-target 'gth2020App-tvOS' do
-  # Pods for gth2020App-tvOS
-
-  target 'gth2020App-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
