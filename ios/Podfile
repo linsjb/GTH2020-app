@@ -36,7 +36,3 @@ target 'gth2020App' do
 
   use_native_modules!
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> master
