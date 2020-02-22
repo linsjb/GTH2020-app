@@ -5,7 +5,8 @@ import CircleCheckBox, {LABEL_POSITION} from 'react-native-circle-checkbox';
 class CourseItem extends Component {
 
     constructor(props) {
-        super(props);                    
+        super(props);  
+        console.log(this.props.navigate);                  
     }
 
     render() {
@@ -14,7 +15,7 @@ class CourseItem extends Component {
          
             <CircleCheckBox
             checked={this.props.data.finished}
-            onToggle={(checked) => console.log('My state is: ', checked)}
+            onToggle={(checked) => this.props.navigate()}
             labelPosition={LABEL_POSITION.RIGHT}
             label={this.props.data.text} />
                                

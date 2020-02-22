@@ -15,18 +15,19 @@ class Courses extends Component {
                 { id: 5, text: 'Course 5', finished: false},
                 { id: 6, text: 'Course 6', finished: false}
             ]
-        };        
+        };          
     }
+
 
     render() {
       return (
-        <View>          
-            <CourseItem data={this.state.courses[0]}></CourseItem>
-            <CourseItem data={this.state.courses[1]}></CourseItem>
-            <CourseItem data={this.state.courses[2]}></CourseItem>
-            <CourseItem data={this.state.courses[3]}></CourseItem>
-            <CourseItem data={this.state.courses[4]}></CourseItem>
-            <CourseItem data={this.state.courses[5]}></CourseItem>
+        <View>                     
+            <CourseItem navigate={this.props.callbackEmpty} data={this.state.courses[0]}></CourseItem>
+            <CourseItem navigate={this.props.callbackEmpty} data={this.state.courses[1]}></CourseItem>
+            <CourseItem navigate={this.props.callbackEmpty} data={this.state.courses[2]}></CourseItem>
+            <CourseItem navigate={this.props.callback} data={this.state.courses[3]}></CourseItem>
+            <CourseItem navigate={this.props.callback} data={this.state.courses[4]}></CourseItem>
+            <CourseItem navigate={this.props.callback} data={this.state.courses[5]}></CourseItem>
         </View>
       );
     }
