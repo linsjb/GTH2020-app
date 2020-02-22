@@ -9,6 +9,7 @@ import HelloHack from './components/HelloHack';
 import BadgesComponent from './components/Badges';
 import CoursesComponent from './components/Courses'
 import TopicComponent from './components/Topic'
+import NewsItems from './components/NewsItems'
 
 const Courses = ({navigation}) => {
   const setState = name => {
@@ -46,8 +47,6 @@ const Badges = ({navigation}) => {
     <View style={styles.container}>
       <Header title="Mindist" />
       <BadgesComponent />
-      {/* <Text>Badges</Text> */}
-
       <Tabs
         selected={'first'}
         style={{backgroundColor: 'white'}}
@@ -72,7 +71,7 @@ const News = ({navigation}) => {
     <View style={styles.container}>
       <Header title="Mindist" />
       {/* My Badges goes here */}
-      <Text>News</Text>
+      <NewsItems></NewsItems>
 
       <Tabs
         selected={'first'}

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-class Badges extends Component {
+class NewsItems extends Component {
 
     constructor(props) {
         super(props);        
         this.state = { 
-            badges: [
-                { id: 1, text: 'Emblem #1'},
-                { id: 2, text: 'Emblem #2'},
-                { id: 3, text: 'Emblem #3'}
+            newsitems: [
+                { id: 1, text: 'Nyhetsrubrik #1'},
+                { id: 2, text: 'Nyhetsrubrik #2'},
+                { id: 3, text: 'Nyhetsrubrik #3'}
             ]
         };        
     }
@@ -19,19 +19,19 @@ class Badges extends Component {
         <View>          
             <TouchableOpacity style={styles.listitem} >
                 <View style={styles.listitemview}>
-                    <Text style={styles.listitemtext}>{this.state.badges[0].text}</Text>
+                    <Text style={styles.listitemtext}>{this.state.newsitems[0].text}</Text>
                 </View>        
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.listitem} >
                 <View style={styles.listitemview}>
-                    <Text style={styles.listitemtext}>{this.state.badges[1].text}</Text>
+                    <Text style={styles.listitemtext}>{this.state.newsitems[1].text}</Text>
                 </View>        
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.listitem} >
                 <View style={styles.listitemview}>
-                    <Text style={styles.listitemtext}>{this.state.badges[2].text}</Text>
+                    <Text style={styles.listitemtext}>{this.state.newsitems[2].text}</Text>
                 </View>        
             </TouchableOpacity>
         </View>
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Badges;
+export default NewsItems;

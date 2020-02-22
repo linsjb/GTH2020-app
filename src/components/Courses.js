@@ -8,12 +8,12 @@ class Courses extends Component {
         super(props);        
         this.state = { 
             courses: [
-                { id: 1, text: 'Course 1', finished: true},
-                { id: 2, text: 'Course 2', finished: true},
-                { id: 3, text: 'Course 3', finished: true},
-                { id: 4, text: 'Course 4', finished: false},
-                { id: 5, text: 'Course 5', finished: false},
-                { id: 6, text: 'Course 6', finished: false}
+                { id: 1, text: 'Kurs #1', finished: true},
+                { id: 2, text: 'Kurs #2', finished: true},
+                { id: 3, text: 'Kurs #3', finished: true},
+                { id: 4, text: 'Kurs #4', finished: false},
+                { id: 5, text: 'Kurs #5', finished: false},
+                { id: 6, text: 'Kurs #6', finished: false}
             ]
         };          
     }

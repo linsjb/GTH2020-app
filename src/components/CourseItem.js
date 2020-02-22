@@ -17,7 +17,9 @@ class CourseItem extends Component {
             checked={this.props.data.finished}
             onToggle={(checked) => this.props.navigate()}
             labelPosition={LABEL_POSITION.RIGHT}
-            label={this.props.data.text} />
+            label={this.props.data.text}
+            outerColor='#2E7D32'
+            innerColor='#2E7D32' />
                                
         </TouchableOpacity>                        
       );
